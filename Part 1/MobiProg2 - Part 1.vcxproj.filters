@@ -46,6 +46,12 @@
     <Filter Include="ANTLR">
       <UniqueIdentifier>{dde296ef-a92f-4364-b657-780f88af721c}</UniqueIdentifier>
     </Filter>
+    <Filter Include="FileSystem">
+      <UniqueIdentifier>{6c5c4169-aa9f-449c-abce-c55f828c7cea}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Parser">
+      <UniqueIdentifier>{30fea540-c06b-4b21-8323-b2179ee9d5e9}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -126,6 +132,13 @@
     <ClCompile Include="CParser.cpp">
       <Filter>ANTLR</Filter>
     </ClCompile>
+    <ClCompile Include="FileReader.cpp">
+      <Filter>FileSystem</Filter>
+    </ClCompile>
+    <ClCompile Include="MobiProgParser.cpp">
+      <Filter>Parser</Filter>
+    </ClCompile>
+    <ClCompile Include="MobiErrorListener.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AppWindow.h">
@@ -212,6 +225,13 @@
     <ClInclude Include="CParser.h">
       <Filter>ANTLR</Filter>
     </ClInclude>
+    <ClInclude Include="FileReader.h">
+      <Filter>FileSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="MobiProgParser.h">
+      <Filter>Parser</Filter>
+    </ClInclude>
+    <ClInclude Include="MobiErrorListener.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="CLexer.interp">

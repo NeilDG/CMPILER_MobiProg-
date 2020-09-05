@@ -5,6 +5,8 @@
 #include <iostream>
 #include "GraphicsEngine.h"
 #include "VertexShader.h"
+#include "FileReader.h"
+#include "MobiProgParser.h"
 
 MenuScreen::MenuScreen(): AUIScreen("MenuScreen")
 {
@@ -40,6 +42,15 @@ void MenuScreen::drawUI()
 			if (ImGui::MenuItem("Exit Editor", "Ctrl+W")) {/*Do something */ }
 			ImGui::EndMenu();
 		}
+
+		if (ImGui::Button("Compile")) {
+			MobiProgParser::getInstance()->compileScript();
+		}
+
+		if (ImGui::Button("Execute")) {
+
+		}
+
 		ImGui::EndMainMenuBar();
 	}
 
@@ -54,6 +65,8 @@ void MenuScreen::drawUI()
 	}
 	
 	else if (this->openSceneDialog->HasSelected()) {
+		FileReader reader = FileReader(this->openSceneDialog->GetSelected().string());
+		reader.readFromFile();
 
 		this->openSceneDialog->ClearSelected();
 		this->openSceneDialog->Close();

@@ -6,12 +6,7 @@
 #include "Debug.h"
 #include <sstream>
 #include <time.h>
-#include <antlr4-runtime.h>
-#include "CLexer.h"
-#include "CParser.h"
-#include "CListener.h"
-
-using namespace antlr4;
+#include "MobiProgParser.h"
 
 static float f = 0.0f;
 static int counter = 0;
@@ -62,6 +57,7 @@ void AppWindow::onDestroy()
 	this->swapChain->release();
 
 	GraphicsEngine::destroy();
+	MobiProgParser::destroy();
 	Debug::destroy();
 
 	// IMGUI Cleanup
@@ -75,6 +71,7 @@ void AppWindow::onDestroy()
 void AppWindow::initializeEngine()
 {
 	Debug::initialize();
+	MobiProgParser::initialize();
 	GraphicsEngine::initialize();
 	GraphicsEngine* graphEngine = GraphicsEngine::getInstance();
 
@@ -92,16 +89,10 @@ void AppWindow::createInterface()
 {
 	UIManager::initialize(this->windowHandle);
 	std::stringstream buffer;
-	buffer << "Successfully initialized MobiProg++ runtime environment! \n";
+	buffer << "Successfully initialized MobiProg++ runtime environment!";
 	Debug::Log(buffer.str());
 
-	ANTLRInputStream input(buffer);
-	CLexer lexer(&input);
-	CommonTokenStream tokens(&lexer);
-	CParser parser(&tokens);
 
-	tree::ParseTree* tree = parser.primaryExpression();
-	tree::ParseTreeWalker::DEFAULT.walk(NULL, tree);
 }
 
 

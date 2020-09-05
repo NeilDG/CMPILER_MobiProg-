@@ -6,6 +6,8 @@
 
 #include "antlr4-runtime.h"
 #include "CListener.h"
+#include "Debug.h"
+#include <sstream>
 
 
 /**
@@ -16,7 +18,8 @@
 class  CBaseListener : public CListener {
 public:
 
-  virtual void enterPrimaryExpression(CParser::PrimaryExpressionContext * /*ctx*/) override { }
+  virtual void enterPrimaryExpression(CParser::PrimaryExpressionContext * ctx) override {
+  }
   virtual void exitPrimaryExpression(CParser::PrimaryExpressionContext * /*ctx*/) override { }
 
   virtual void enterGenericSelection(CParser::GenericSelectionContext * /*ctx*/) override { }
@@ -278,10 +281,18 @@ public:
   virtual void exitDeclarationList(CParser::DeclarationListContext * /*ctx*/) override { }
 
 
-  virtual void enterEveryRule(antlr4::ParserRuleContext * /*ctx*/) override { }
+  virtual void enterEveryRule(antlr4::ParserRuleContext * ctx) override {
+	  std::stringstream buffer;
+	  buffer << "Rule: " << ctx->getText() << " Context ID: " << ctx->toString() << "\n";
+	  //Debug::Log(buffer.str());
+  }
   virtual void exitEveryRule(antlr4::ParserRuleContext * /*ctx*/) override { }
   virtual void visitTerminal(antlr4::tree::TerminalNode * /*node*/) override { }
-  virtual void visitErrorNode(antlr4::tree::ErrorNode * /*node*/) override { }
+  virtual void visitErrorNode(antlr4::tree::ErrorNode * node) override {
+	  std::stringstream buffer;
+	  buffer << "Error node: " << node->toString() << "\n";
+	  Debug::Log(buffer.str());
+  }
 
 };
 

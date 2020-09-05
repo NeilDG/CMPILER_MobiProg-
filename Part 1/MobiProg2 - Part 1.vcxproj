@@ -164,6 +164,7 @@
     <ClCompile Include="CParser.cpp" />
     <ClCompile Include="Debug.cpp" />
     <ClCompile Include="DeviceContext.cpp" />
+    <ClCompile Include="FileReader.cpp" />
     <ClCompile Include="GraphicsEngine.cpp" />
     <ClCompile Include="imgui.cpp" />
     <ClCompile Include="imgui_demo.cpp" />
@@ -175,6 +176,8 @@
     <ClCompile Include="LogUtils.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="MenuScreen.cpp" />
+    <ClCompile Include="MobiErrorListener.cpp" />
+    <ClCompile Include="MobiProgParser.cpp" />
     <ClCompile Include="StringUtils.cpp" />
     <ClCompile Include="SwapChain.cpp" />
     <ClCompile Include="UIManager.cpp" />
@@ -192,6 +195,7 @@
     <ClInclude Include="CParser.h" />
     <ClInclude Include="Debug.h" />
     <ClInclude Include="DeviceContext.h" />
+    <ClInclude Include="FileReader.h" />
     <ClInclude Include="GraphicsEngine.h" />
     <ClInclude Include="imconfig.h" />
     <ClInclude Include="imfilebrowser.h" />
@@ -205,6 +209,8 @@
     <ClInclude Include="IndexBuffer.h" />
     <ClInclude Include="LogUtils.h" />
     <ClInclude Include="MenuScreen.h" />
+    <ClInclude Include="MobiErrorListener.h" />
+    <ClInclude Include="MobiProgParser.h" />
     <ClInclude Include="StringUtils.h" />
     <ClInclude Include="SwapChain.h" />
     <ClInclude Include="UIManager.h" />

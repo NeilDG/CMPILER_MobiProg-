@@ -3,7 +3,7 @@
 void ConsoleScreen::appendText(String text)
 {
 	std::stringstream buffer;
-	buffer << this->lineCount << " " << text;
+	buffer << this->lineCount << " " << text << '\n';
 
 	this->textLog->appendf(buffer.str().c_str());
 	this->lineCount++;
