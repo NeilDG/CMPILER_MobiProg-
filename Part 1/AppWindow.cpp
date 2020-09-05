@@ -6,6 +6,12 @@
 #include "Debug.h"
 #include <sstream>
 #include <time.h>
+#include <antlr4-runtime.h>
+#include "CLexer.h"
+#include "CParser.h"
+#include "CListener.h"
+
+using namespace antlr4;
 
 static float f = 0.0f;
 static int counter = 0;
@@ -88,6 +94,14 @@ void AppWindow::createInterface()
 	std::stringstream buffer;
 	buffer << "Successfully initialized MobiProg++ runtime environment! \n";
 	Debug::Log(buffer.str());
+
+	ANTLRInputStream input(buffer);
+	CLexer lexer(&input);
+	CommonTokenStream tokens(&lexer);
+	CParser parser(&tokens);
+
+	tree::ParseTree* tree = parser.primaryExpression();
+	tree::ParseTreeWalker::DEFAULT.walk(NULL, tree);
 }
 
 
